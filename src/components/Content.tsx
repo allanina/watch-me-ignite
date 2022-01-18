@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { api } from "../services/api";
+import { MovieCard } from "./MovieCard";
 
 interface MovieProps {
   imdbID: string;
@@ -12,11 +13,20 @@ interface MovieProps {
   Runtime: string;
 }
 
-interface ContentProps {
-  selectedGenreId: number;
+interface GenreResponseProps {
+  id: number;
+  name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
+  title: string;
 }
 
-export function Content({selectedGenreId} : ContentProps) {
+interface ContentProps {
+  selectedGenreId: number;
+  selectedGenre: GenreResponseProps;
+}
+
+
+
+export function Content({selectedGenreId, selectedGenre} : ContentProps) {
 
   const [movies, setMovies] = useState<MovieProps[]>([]);
 
@@ -29,7 +39,7 @@ export function Content({selectedGenreId} : ContentProps) {
   return (
     <div className="container">
       <header>
-        <span className="category">Categoria:<span> {se lectedGenre.title}</span></span>
+        <span className="category">Categoria:<span> {selectedGenre.title}</span></span>
       </header>
 
       <main>
