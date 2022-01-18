@@ -26,7 +26,7 @@ interface ContentProps {
 
 
 
-export function Content({selectedGenreId, selectedGenre} : ContentProps) {
+export function Content({ selectedGenreId, selectedGenre }: ContentProps) {
 
   const [movies, setMovies] = useState<MovieProps[]>([]);
 

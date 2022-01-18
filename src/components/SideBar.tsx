@@ -13,7 +13,7 @@ interface SidebarProps {
   selectedGenreId: number;
 }
 
-export function SideBar({ handleClickButton, selectedGenreId } : SidebarProps) {
+export function SideBar({ handleClickButton, selectedGenreId }: SidebarProps) {
   const [genres, setGenres] = useState<GenreResponseProps[]>([]);
 
   useEffect(() => {
